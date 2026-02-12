@@ -1,0 +1,110 @@
+/* Basic Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html, body {
+    font-family: sans-serif;           /* Clean, simple font */
+    background: #FFFFFF;              /* High-contrast background for readability */
+    color: #000000;                   /* Dark text for maximum contrast on white */
+    font-size: 16px;                  /* Base font size (accessible default) */
+    line-height: 1.5;
+  }
+  a {
+    color: #0000EE;                   /* Standard link blue (adjust if needed for contrast) */
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;       /* Underline on hover to indicate interactivity */
+  }
+  a:focus {
+    outline: 2px solid #8B0000;       /* Red focus ring for accessibility (visible on keyboard focus) */
+    outline-offset: 2px;
+  }
+  
+  /* Header Styling */
+  .site-header {
+    background: #8B0000;             /* Dark red header background (high contrast with white text) */
+    color: #FFFFFF;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .site-header h1 {
+    font-size: 1.5rem;
+  }
+  .site-header .utility-nav a {
+    color: #FFFFFF;                  /* Header links in white to contrast the dark background */
+    margin-left: 1.5rem;
+    font-weight: bold;
+  }
+  .site-header .utility-nav a:hover, 
+  .site-header .utility-nav a:focus {
+    text-decoration: underline;      /* Emphasize hover/focus on header links */
+  }
+  
+  /* Dashboard Layout */
+  .dashboard {
+    max-width: 1200px;               /* Constrain width for large screens */
+    margin: 2rem auto;               /* center the dashboard, with vertical margin */
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Two-column grid layout on wide screens */
+    grid-gap: 1.5rem;                /* space between cards */
+  }
+  /* On very large screens, you could use three columns:
+     grid-template-columns: 1fr 1fr 1fr;
+     Adjust as needed based on content length. */
+  
+  /* Responsive: single column on smaller screens */
+  @media (max-width: 768px) {
+    .dashboard {
+      grid-template-columns: 1fr;    /* Stack cards in one column */
+    }
+  }
+  
+  /* Card Style */
+  .card {
+    background: #F9F9F9;             /* Light grey background for cards to stand out from white page */
+    border: 1px solid #E0E0E0;       /* Subtle border defining the card */
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Soft shadow for depth */
+  }
+  .card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .card .icon {
+    font-size: 1.5rem;               /* Make emoji icon slightly larger than text */
+    margin-right: 0.5rem;
+  }
+  .card ul {
+    list-style: none;                /* Remove default bullets */
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+  .card li {
+    margin: 0.3rem 0;
+  }
+  .card li a {
+    /* Links already inherit base color (black). Add any additional styling if needed. */
+    padding: 2px;
+  }
+  .card li a:hover {
+    background: #EFEFEF;             /* Highlight link on hover with light background */
+  }
+  .card li a:focus {
+    background: #EFEFEF;             /* Also highlight when focused */
+  }
+  
+  /* Hover effect on card */
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Elevate card on hover to emphasize it */
+    border-color: #CCCCCC;
+  }
+  
