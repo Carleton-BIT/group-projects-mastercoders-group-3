@@ -6,13 +6,13 @@
   }
   html, body {
     font-family: sans-serif;           /* Clean, simple font */
-    background: #FFFFFF;              /* High-contrast background for readability */
+    background: #F4F6F8;             /* High-contrast background for readability */
     color: #000000;                   /* Dark text for maximum contrast on white */
     font-size: 16px;                  /* Base font size (accessible default) */
     line-height: 1.5;
   }
   a {
-    color: #0000EE;                   /* Standard link blue (adjust if needed for contrast) */
+    color: #8B0000;                   /* Standard link blue (adjust if needed for contrast) */
     text-decoration: none;
   }
   a:hover {
@@ -27,7 +27,7 @@
   .site-header {
     background: #8B0000;             /* Dark red header background (high contrast with white text) */
     color: #FFFFFF;
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -49,10 +49,10 @@
   .dashboard {
     max-width: 1200px;               /* Constrain width for large screens */
     margin: 2rem auto;               /* center the dashboard, with vertical margin */
-    padding: 0 1rem;
+    padding: 0 1rem 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;  /* Two-column grid layout on wide screens */
-    grid-gap: 1.5rem;                /* space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Two-column grid layout on wide screens */
+    gap: 1.5rem;                /* space between cards */
   }
   /* On very large screens, you could use three columns:
      grid-template-columns: 1fr 1fr 1fr;
@@ -72,6 +72,7 @@
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* Soft shadow for depth */
+    transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   }
   .card h2 {
     font-size: 1.2rem;
@@ -89,7 +90,7 @@
     margin-top: 0.5rem;
   }
   .card li {
-    margin: 0.3rem 0;
+    margin: 0.5rem 0;
   }
   .card li a {
     /* Links already inherit base color (black). Add any additional styling if needed. */
