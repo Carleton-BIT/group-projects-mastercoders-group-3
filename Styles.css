@@ -108,4 +108,16 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* Elevate card on hover to emphasize it */
     border-color: #CCCCCC;
   }
+
+  .breadcrumb {
+    padding-bottom: 1rem;
+  }
+
+  .page-content {
+    margin: 1.5rem;
+  }
+
+  .top-margin-12{
+    margin-top: 12px;
+  }
   
