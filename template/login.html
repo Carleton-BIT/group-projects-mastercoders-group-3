@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+  </header>
+
+  <main class="dashboard single-page">
+    <section class="card">
+      <h2>Login</h2>
+
+      <form method="POST" class="form-stack">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Login</button>
+      </form>
+
+      {% if error %}
+        <p class="error-text">{{ error }}</p>
+      {% endif %}
+
+      <p class="helper-text">Demo login: admin / admin123</p>
+    </section>
+  </main>
+</body>
+</html>
