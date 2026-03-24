@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Address | Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('home') }}">Dashboard</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
+  </header>
+
+  <main class="dashboard single-page">
+    <section class="card">
+      <h2>Update Address</h2>
+
+      <form method="POST" class="form-stack">
+        <label for="address">New Address</label>
+        <input type="text" id="address" name="address" value="{{ user.address }}" required />
+        <button type="submit">Save Address</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
