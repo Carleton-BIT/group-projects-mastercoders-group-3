@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IT Help Desk – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .info-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .info-card p { margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .faq-item { border-bottom: 1px solid #E0E0E0; padding: 0.75rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item summary { font-weight: bold; cursor: pointer; font-size: 0.95rem; }
+    .faq-item p { margin-top: 0.5rem; font-size: 0.9rem; color: #333; padding-left: 0.5rem; }
+    .form-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .form-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; max-width: 500px; padding: 0.5rem 0.75rem; border: 1px solid #CCCCCC; border-radius: 4px; font-size: 1rem; background: #fff; }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 2px solid #8B0000; outline-offset: 2px; }
+    .submit-btn { background: #8B0000; color: #fff; border: none; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+    .submit-btn:hover { background: #6a0000; }
+    .submit-btn:focus { outline: 2px solid #000; outline-offset: 2px; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">🛟</span> IT Help Desk</h2>
+
+    <!-- Contact Info -->
+    <div class="info-card">
+      <h3>Contact Information</h3>
+      <p><strong>Phone:</strong> 613-520-3700</p>
+      <p><strong>Email:</strong> <a href="mailto:its@carleton.ca">its@carleton.ca</a></p>
+      <p><strong>Walk-in Location:</strong> 1200 Dunton Tower</p>
+      <p><strong>Hours:</strong> Monday–Friday 8:00 AM – 8:00 PM &nbsp;|&nbsp; Saturday 10:00 AM – 4:00 PM</p>
+    </div>
+
+    <!-- FAQ -->
+    <div class="info-card">
+      <h3>Frequently Asked Questions</h3>
+      <details class="faq-item">
+        <summary>How do I set up my Carleton email?</summary>
+        <p>Your Carleton email (cmail.carleton.ca) is automatically created when you activate your MyCarletonOne account. Log in at mail.carleton.ca using your full Carleton email address and MyCarletonOne password.</p>
+      </details>
+      <details class="faq-item">
+        <summary>I forgot my MyCarletonOne password. What do I do?</summary>
+        <p>Visit <a href="{{ url_for('change_password') }}">Change Password</a> or go to mycarletonone.carleton.ca and click "Forgot Password". You will need access to your recovery email or phone number to reset it.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I connect to eduroam Wi-Fi on campus?</summary>
+        <p>Connect to the "eduroam" network. Enter your full Carleton email address as your username (e.g. janedoe@carleton.ca) and your MyCarletonOne password. Use WPA2 Enterprise with PEAP/MSCHAPv2.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How do I access licensed software (e.g. Microsoft 365)?</summary>
+        <p>Carleton students get free Microsoft 365. Sign in at office.com using your Carleton email address. Other licensed software (SPSS, Adobe, etc.) is available through ITS Software Downloads in the portal.</p>
+      </details>
+      <details class="faq-item">
+        <summary>My Carleton Central account is locked. How do I unlock it?</summary>
+        <p>Contact the IT Help Desk by phone or walk-in with your student ID. For security reasons, account unlocks cannot be processed by email.</p>
+      </details>
+    </div>
+
+    <!-- Submit a Ticket -->
+    <div class="form-card">
+      <h3>Submit a Support Ticket</h3>
+
+      <div class="form-group">
+        <label for="category">Issue Category</label>
+        <select id="category" name="category">
+          <option value="">-- Select --</option>
+          <option value="account">Account / Login</option>
+          <option value="email">Email / Microsoft 365</option>
+          <option value="wifi">Wi-Fi / Network</option>
+          <option value="carleton-central">Carleton Central</option>
+          <option value="software">Software / Licensing</option>
+          <option value="hardware">Hardware / Lab Computers</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Brief description of your issue" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Describe the issue in detail, including any error messages..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="contact-email">Contact Email</label>
+        <input type="email" id="contact-email" name="contact-email" placeholder="janedoe@cmail.carleton.ca" />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Ticket</button>
+    </div>
+  </div>
+</body>
+</html>

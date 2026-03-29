@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Financial Aid Status – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .info-box {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .info-box p {
+      margin-bottom: 0.5rem;
+    }
+    .aid-section {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .aid-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      font-size: 0.95rem;
+    }
+    th {
+      font-weight: bold;
+      background: #EFEFEF;
+    }
+    .status-approved { color: #2a7a2a; font-weight: bold; }
+    .status-pending { color: #b86000; font-weight: bold; }
+    .status-not-eligible { color: #888; font-weight: bold; }
+    .notice {
+      background: #fff8e1;
+      border-left: 4px solid #f0b429;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+
+    <h2><span aria-hidden="true">🏆</span> Financial Aid Status</h2>
+
+    <div class="info-box">
+      <p><strong>Student:</strong> Jane Doe &nbsp;|&nbsp; <strong>Student ID:</strong> 100234567</p>
+      <p><strong>Program:</strong> Bachelor of Information Technology – IRM</p>
+      <p><strong>Academic Year:</strong> 2025–2026</p>
+    </div>
+
+    <div class="notice">
+      Your OSAP application for 2025–2026 has been received. Please ensure all required documents are submitted by <strong>April 15, 2026</strong>.
+    </div>
+
+    <!-- OSAP -->
+    <div class="aid-section">
+      <h3>Ontario Student Assistance Program (OSAP)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Aid Type</th>
+            <th>Amount</th>
+            <th>Term</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ontario Grant</td>
+            <td>$2,800</td>
+            <td>Fall 2025</td>
+            <td class="status-approved">Approved</td>
+          </tr>
+          <tr>
+            <td>Canada Student Grant</td>
+            <td>$1,600</td>
+            <td>Fall 2025</td>
+            <td class="status-approved">Approved</td>
+          </tr>
+          <tr>
+            <td>Ontario Grant</td>
+            <td>$2,800</td>
+            <td>Winter 2026</td>
+            <td class="status-pending">Pending</td>
+          </tr>
+          <tr>
+            <td>Canada Student Grant</td>
+            <td>$1,600</td>
+            <td>Winter 2026</td>
+            <td class="status-pending">Pending</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bursaries -->
+    <div class="aid-section">
+      <h3>University Bursaries</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Bursary</th>
+            <th>Amount</th>
+            <th>Term</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Carleton Need-Based Bursary</td>
+            <td>$1,200</td>
+            <td>Fall 2025</td>
+            <td class="status-approved">Approved</td>
+          </tr>
+          <tr>
+            <td>Emergency Financial Assistance</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="status-not-eligible">Not Applied</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tuition Balance – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .info-box {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .info-box p {
+      margin-bottom: 0.5rem;
+    }
+    .balance-section {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .balance-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      font-size: 0.95rem;
+    }
+    th {
+      font-weight: bold;
+      background: #EFEFEF;
+    }
+    td.amount { text-align: right; }
+    th.amount { text-align: right; }
+    .total-row td {
+      font-weight: bold;
+      background: #EFEFEF;
+    }
+    .balance-owing {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #8B0000;
+    }
+    .balance-credit {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2a7a2a;
+    }
+    .due-notice {
+      background: #fdecea;
+      border-left: 4px solid #c0392b;
+      padding: 0.75rem 1rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+
+    <h2><span aria-hidden="true">🏆</span> Tuition Balance</h2>
+
+    <div class="info-box">
+      <p><strong>Student:</strong> Jane Doe &nbsp;|&nbsp; <strong>Student ID:</strong> 100234567</p>
+      <p><strong>Program:</strong> Bachelor of Information Technology – IRM</p>
+      <p><strong>Current Balance:</strong> <span class="balance-owing">$1,247.50 owing</span></p>
+    </div>
+
+    <div class="due-notice">
+      Payment of <strong>$1,247.50</strong> is due by <strong>February 28, 2026</strong>. Late payments are subject to a 1.5% monthly interest charge.
+    </div>
+
+    <!-- Winter 2026 Charges -->
+    <div class="balance-section">
+      <h3>Winter 2026 – Charges</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th class="amount">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tuition – 3 courses (1.5 credits)</td>
+            <td class="amount">$4,312.50</td>
+          </tr>
+          <tr>
+            <td>Student Association Fee</td>
+            <td class="amount">$127.00</td>
+          </tr>
+          <tr>
+            <td>Athletics & Recreation Fee</td>
+            <td class="amount">$98.00</td>
+          </tr>
+          <tr>
+            <td>Student Health & Dental Plan</td>
+            <td class="amount">$210.00</td>
+          </tr>
+          <tr class="total-row">
+            <td>Total Charges</td>
+            <td class="amount">$4,747.50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Winter 2026 Payments & Aid -->
+    <div class="balance-section">
+      <h3>Winter 2026 – Payments &amp; Aid Applied</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Date</th>
+            <th class="amount">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>OSAP – Ontario Grant</td>
+            <td>Jan 10, 2026</td>
+            <td class="amount">$2,800.00</td>
+          </tr>
+          <tr>
+            <td>Online Payment</td>
+            <td>Jan 15, 2026</td>
+            <td class="amount">$700.00</td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2">Total Paid</td>
+            <td class="amount">$3,500.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

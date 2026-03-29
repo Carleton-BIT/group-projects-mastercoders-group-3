@@ -10,7 +10,7 @@
   <header class="site-header">
     <h1>Carleton Central</h1>
     <nav class="utility-nav">
-      <a href="#">Help</a>
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
       <a href="{{ url_for('logout') }}">Logout</a>
     </nav>
   </header>
@@ -24,53 +24,53 @@
 
       <ul>
         <li><a href="{{ url_for('edit_address') }}">Update Address</a></li>
-        <li><a href="#">Change Password</a></li>
-        <li><a href="#">View Personal Data</a></li>
+        <li><a href="{{ url_for('change_password') }}">Change Password</a></li>
+        <li><a href="{{ url_for('personal_data') }}">View Personal Data</a></li>
       </ul>
     </section>
 
     <section class="card">
       <h2><span class="icon" aria-hidden="true">📄</span> Student Records</h2>
       <ul>
-        <li><a href="#">View Grades</a></li>
-        <li><a href="#">Official Transcript Request</a></li>
-        <li><a href="#">Enrollment Verification</a></li>
+        <li><a href="{{ url_for('grades') }}">View Grades</a></li>
+        <li><a href="{{ url_for('transcript_request') }}">Official Transcript Request</a></li>
+        <li><a href="{{ url_for('enrollment_verification') }}">Enrollment Verification</a></li>
       </ul>
     </section>
 
     <section class="card">
       <h2><span class="icon" aria-hidden="true">📝</span> Registration</h2>
       <ul>
-        <li><a href="#">Search Courses</a></li>
-        <li><a href="#">Add/Drop Classes</a></li>
-        <li><a href="#">View Schedule</a></li>
+        <li><a href="{{ url_for('search_courses') }}">Search Courses</a></li>
+        <li><a href="{{ url_for('add_drop') }}">Add/Drop Classes</a></li>
+        <li><a href="{{ url_for('schedule') }}">View Schedule</a></li>
       </ul>
     </section>
 
     <section class="card">
       <h2><span class="icon" aria-hidden="true">🎓</span> Academic Progress</h2>
       <ul>
-        <li><a href="#">Degree Audit</a></li>
-        <li><a href="#">Program Requirements</a></li>
-        <li><a href="#">Apply to Graduate</a></li>
+        <li><a href="{{ url_for('degree_audit') }}">Degree Audit</a></li>
+        <li><a href="{{ url_for('program_requirements') }}">Program Requirements</a></li>
+        <li><a href="{{ url_for('apply_to_graduate') }}">Apply to Graduate</a></li>
       </ul>
     </section>
 
     <section class="card">
       <h2><span class="icon" aria-hidden="true">🏆</span> Awards &amp; Financial Assistance</h2>
       <ul>
-        <li><a href="#">View Scholarships</a></li>
-        <li><a href="#">Financial Aid Status</a></li>
-        <li><a href="#">Tuition Balance</a></li>
+        <li><a href="{{ url_for('scholarships') }}">View Scholarships</a></li>
+        <li><a href="{{ url_for('financial_aid') }}">Financial Aid Status</a></li>
+        <li><a href="{{ url_for('tuition_balance') }}">Tuition Balance</a></li>
       </ul>
     </section>
 
     <section class="card">
       <h2><span class="icon" aria-hidden="true">🛟</span> Support Services</h2>
       <ul>
-        <li><a href="#">Contact Academic Advisor</a></li>
-        <li><a href="#">Counseling Services</a></li>
-        <li><a href="#">IT Help Desk</a></li>
+        <li><a href="{{ url_for('contact_advisor') }}">Contact Academic Advisor</a></li>
+        <li><a href="{{ url_for('counseling_services') }}">Counseling Services</a></li>
+        <li><a href="{{ url_for('it_help_desk') }}">IT Help Desk</a></li>
       </ul>
     </section>
   </main>

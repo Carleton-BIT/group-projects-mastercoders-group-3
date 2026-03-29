@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply to Graduate – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info-card {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .info-card p {
+      margin-bottom: 0.5rem;
+    }
+    .steps-card {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .steps-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    .step {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+    .step-number {
+      background: #8B0000;
+      color: #fff;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .step-body strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .step-body p {
+      font-size: 0.9rem;
+      color: #444;
+      margin: 0;
+    }
+    .deadline-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    .deadline-table th, .deadline-table td {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      font-size: 0.95rem;
+    }
+    .deadline-table th {
+      background: #EFEFEF;
+      font-weight: bold;
+    }
+    .form-section {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .form-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #CCCCCC;
+      border-radius: 4px;
+      font-size: 1rem;
+      background: #fff;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: 2px solid #8B0000;
+      outline-offset: 2px;
+    }
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      font-size: 0.95rem;
+    }
+    .submit-btn {
+      background: #8B0000;
+      color: #fff;
+      border: none;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .submit-btn:hover {
+      background: #6a0000;
+    }
+    .submit-btn:focus {
+      outline: 2px solid #000;
+      outline-offset: 2px;
+    }
+    .note {
+      background: #fff8e1;
+      border-left: 4px solid #f0b429;
+      padding: 0.75rem 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+
+    <h2><span aria-hidden="true">🎓</span> Apply to Graduate</h2>
+
+    <!-- Eligibility info -->
+    <div class="info-card">
+      <p><strong>Student:</strong> Jane Doe &nbsp;|&nbsp; <strong>Student ID:</strong> 100234567</p>
+      <p><strong>Program:</strong> Bachelor of Information Technology – Information Resource Management (IRM)</p>
+      <p>You must submit a graduation application to be considered for convocation. Applications are reviewed by the Registrar's Office after all final grades are posted.</p>
+      <div class="note">Before applying, ensure your <a href="{{ url_for('degree_audit') }}">Degree Audit</a> shows all requirements met or in-progress for your final term.</div>
+    </div>
+
+    <!-- Deadlines -->
+    <div class="steps-card">
+      <h3>Application Deadlines</h3>
+      <table class="deadline-table">
+        <thead>
+          <tr>
+            <th>Convocation</th>
+            <th>Application Opens</th>
+            <th>Application Deadline</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Spring 2026 (June)</td>
+            <td>November 1, 2025</td>
+            <td>February 1, 2026</td>
+          </tr>
+          <tr>
+            <td>Fall 2026 (November)</td>
+            <td>April 1, 2026</td>
+            <td>July 1, 2026</td>
+          </tr>
+          <tr>
+            <td>Spring 2027 (June)</td>
+            <td>November 1, 2026</td>
+            <td>February 1, 2027</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">Late applications may not be processed in time for the intended convocation ceremony.</div>
+    </div>
+
+    <!-- How it works -->
+    <div class="steps-card">
+      <h3>How It Works</h3>
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-body">
+          <strong>Verify degree requirements</strong>
+          <p>Check your <a href="{{ url_for('degree_audit') }}">Degree Audit</a> to confirm all requirements will be satisfied by your final term.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-body">
+          <strong>Submit your application</strong>
+          <p>Complete and submit the form below before the deadline for your intended convocation.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-body">
+          <strong>Registrar review</strong>
+          <p>The Registrar's Office will review your application after final grades are posted. You will be notified by email of the outcome.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-body">
+          <strong>Confirmation</strong>
+          <p>If approved, you will receive convocation details and ticket information by email approximately 8 weeks before the ceremony.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application form -->
+    <div class="form-section">
+      <h3>Graduation Application Form</h3>
+
+      <div class="form-group">
+        <label for="student-name">Full Legal Name</label>
+        <input type="text" id="student-name" name="student-name" value="Jane Doe" />
+      </div>
+
+      <div class="form-group">
+        <label for="student-id">Student ID</label>
+        <input type="text" id="student-id" name="student-id" value="100234567" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="program">Program</label>
+        <input type="text" id="program" name="program" value="B.I.T. Information Resource Management (IRM)" readonly />
+      </div>
+
+      <div class="form-group">
+        <label for="convocation">Intended Convocation</label>
+        <select id="convocation" name="convocation">
+          <option value="">-- Select --</option>
+          <option value="spring2026">Spring 2026 (June)</option>
+          <option value="fall2026">Fall 2026 (November)</option>
+          <option value="spring2027">Spring 2027 (June)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Preferred Contact Email</label>
+        <input type="email" id="email" name="email" placeholder="jane.doe@cmail.carleton.ca" />
+      </div>
+
+      <div class="form-group">
+        <p style="font-weight:bold; margin-bottom:0.5rem;">Declarations</p>
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirm-requirements" name="confirm-requirements" />
+          <label for="confirm-requirements">I confirm that I will have completed all degree requirements by the end of my final registered term.</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirm-fees" name="confirm-fees" />
+          <label for="confirm-fees">I confirm that I have no outstanding financial holds on my account.</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="confirm-info" name="confirm-info" />
+          <label for="confirm-info">I confirm that the information provided above is accurate and complete.</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Application</button>
+    </div>
+  </div>
+</body>
+</html>

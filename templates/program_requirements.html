@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Requirements – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .page-content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .intro-card {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    .intro-card p {
+      margin-bottom: 0.4rem;
+    }
+    .req-section {
+      background: #F9F9F9;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .req-section h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #E0E0E0;
+      padding-bottom: 0.5rem;
+    }
+    .req-section ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .req-section ul li {
+      margin: 0.35rem 0;
+      font-size: 0.95rem;
+    }
+    .req-section p {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+    .credit-badge {
+      display: inline-block;
+      background: #8B0000;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .note {
+      background: #fff8e1;
+      border-left: 4px solid #f0b429;
+      padding: 0.75rem 1rem;
+      border-radius: 0 4px 4px 0;
+      font-size: 0.9rem;
+      margin-top: 0.75rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+
+    <h2><span aria-hidden="true">🎓</span> Program Requirements</h2>
+
+    <div class="intro-card">
+      <p><strong>Program:</strong> Bachelor of Information Technology – Information Resource Management (IRM)</p>
+      <p><strong>Total Credits Required:</strong> 20.0</p>
+      <p><strong>Offered jointly by:</strong> Carleton University &amp; Algonquin College</p>
+      <p><strong>Note:</strong> All courses in this program are required — there are no free electives. A minor in another academic discipline is mandatory.</p>
+      <p>The requirements below reflect the current calendar year. Contact your academic advisor if you were admitted under an earlier calendar.</p>
+    </div>
+
+    <!-- First Year -->
+    <div class="req-section">
+      <h3>First Year <span class="credit-badge">4.0 credits</span></h3>
+      <p>All of the following courses must be completed:</p>
+      <ul>
+        <li>IRM 1008 – Introduction to Information Resource Management (0.5)</li>
+        <li>IRM 1002 – Reference and Information Services (0.5)</li>
+        <li>IRM 1003 – Collections Management (0.5)</li>
+        <li>IRM 1004 – Reader's Advisory Services (0.5)</li>
+        <li>IRM 1005 – Web Interface Development (0.5)</li>
+        <li>IRM 1006 – Subject Analysis and Indexing (0.5)</li>
+        <li>IRM 1007 – Cataloguing (0.5)</li>
+        <li>BIT 1400 – Introduction to Programming and Problem Solving (0.5)</li>
+      </ul>
+    </div>
+
+    <!-- Second Year -->
+    <div class="req-section">
+      <h3>Second Year <span class="credit-badge">3.0 credits</span></h3>
+      <p>All of the following courses must be completed:</p>
+      <ul>
+        <li>IRM 2002 – Legal and Business Information (0.5)</li>
+        <li>IRM 2003 – Classification (0.5)</li>
+        <li>IRM 2004 – Information Management and Digital Preservation (0.5)</li>
+        <li>IRM 2005 – Advanced Cataloguing (0.5)</li>
+        <li>IRM 2006 – Data Visualization (0.5)</li>
+        <li>BIT 2009 – Statistics for Technology (0.5)</li>
+      </ul>
+    </div>
+
+    <!-- Third Year -->
+    <div class="req-section">
+      <h3>Third Year <span class="credit-badge">3.0 credits</span></h3>
+      <p>All of the following courses must be completed:</p>
+      <ul>
+        <li>IRM 3001 – Scientific and Medical Information (0.5)</li>
+        <li>IRM 3003 – Legal Issues in Information Resource Management (0.5)</li>
+        <li>IRM 3004 – Project Management (0.5)</li>
+        <li>IRM 3006 – Data Analysis and Research Methodology (0.5)</li>
+        <li>IRM 3007 – Practicum for IRM (0.5)</li>
+        <li>IRM 3008 – Metadata for IRM (0.5)</li>
+      </ul>
+    </div>
+
+    <!-- Fourth Year -->
+    <div class="req-section">
+      <h3>Fourth Year <span class="credit-badge">3.5 credits</span></h3>
+      <p>All of the following courses must be completed:</p>
+      <ul>
+        <li>IRM 4000 – Library Software (0.5)</li>
+        <li>IRM 4001 – Archives and Special Collections (0.5)</li>
+        <li>IRM 4002 – Network Technology (0.5)</li>
+        <li>IRM 4004 – Applied Machine Learning and Big Data Analytics (0.5)</li>
+        <li>IRM 4005 – Introduction to Deep Learning (0.5)</li>
+        <li>IRM 4900 – IRM Capstone Project (1.0)</li>
+      </ul>
+    </div>
+
+    <!-- Minor Requirement -->
+    <div class="req-section">
+      <h3>Minor Requirement</h3>
+      <p>All BIT IRM students must complete a minor in another academic discipline. The minor must be declared through the Registrar's Office and completed alongside program requirements.</p>
+      <div class="note">Credits used to satisfy the minor may also count toward the 20.0 credit total where applicable. See your academic advisor for details.</div>
+    </div>
+
+    <!-- GPA Requirement -->
+    <div class="req-section">
+      <h3>GPA Requirement</h3>
+      <p>A minimum cumulative GPA of 4.0 (equivalent to a C–) is required to graduate.</p>
+      <div class="note">10.0 credits are included in the major CGPA; the remaining 10.0 credits are not included in the major CGPA calculation.</div>
+    </div>
+  </div>
+</body>
+</html>

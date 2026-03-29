@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Official Transcript Request – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .info-card p { margin-bottom: 0.4rem; }
+    .form-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .form-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; max-width: 500px; padding: 0.5rem 0.75rem; border: 1px solid #CCCCCC; border-radius: 4px; font-size: 1rem; background: #fff; }
+    .form-group textarea { height: 80px; resize: vertical; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 2px solid #8B0000; outline-offset: 2px; }
+    .submit-btn { background: #8B0000; color: #fff; border: none; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+    .submit-btn:hover { background: #6a0000; }
+    .submit-btn:focus { outline: 2px solid #000; outline-offset: 2px; }
+    .note { background: #fff8e1; border-left: 4px solid #f0b429; padding: 0.75rem 1rem; border-radius: 0 4px 4px 0; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">📄</span> Official Transcript Request</h2>
+
+    <div class="info-card">
+      <p><strong>Student:</strong> Jane Doe &nbsp;|&nbsp; <strong>Student ID:</strong> 100234567</p>
+      <p><strong>Program:</strong> Bachelor of Information Technology – Information Resource Management (IRM)</p>
+      <p>Official transcripts are issued by the Registrar's Office. Processing typically takes 3–5 business days. A fee of <strong>$15.00 CAD</strong> applies per transcript order.</p>
+    </div>
+
+    <div class="note">Transcripts will not be issued if you have an outstanding financial hold on your account. Check your <a href="{{ url_for('tuition_balance') }}">Tuition Balance</a> before submitting a request.</div>
+
+    <div class="form-card">
+      <h3>Transcript Request Form</h3>
+
+      <div class="form-group">
+        <label for="delivery">Delivery Method</label>
+        <select id="delivery" name="delivery">
+          <option value="">-- Select --</option>
+          <option value="email-pdf">Secure PDF (email)</option>
+          <option value="mail">Sealed paper copy (mail)</option>
+          <option value="pickup">In-person pickup (Registrar's Office)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="copies">Number of Copies</label>
+        <select id="copies" name="copies">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="purpose">Purpose / Recipient</label>
+        <input type="text" id="purpose" name="purpose" placeholder="e.g. Graduate school application – University of Toronto" />
+      </div>
+
+      <div class="form-group">
+        <label for="recipient-address">Recipient Address (if mailing)</label>
+        <textarea id="recipient-address" name="recipient-address" placeholder="Full mailing address of recipient..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="urgency">Processing Speed</label>
+        <select id="urgency" name="urgency">
+          <option value="standard">Standard (3–5 business days) – $15.00</option>
+          <option value="rush">Rush (1–2 business days) – $30.00</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Request</button>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enrollment Verification – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .info-card p { margin-bottom: 0.4rem; }
+    .info-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .data-row { display: flex; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid #EFEFEF; font-size: 0.95rem; }
+    .data-row:last-child { border-bottom: none; }
+    .data-label { font-weight: bold; min-width: 200px; }
+    .form-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .form-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .form-group input, .form-group select { width: 100%; max-width: 400px; padding: 0.5rem 0.75rem; border: 1px solid #CCCCCC; border-radius: 4px; font-size: 1rem; background: #fff; }
+    .form-group input:focus, .form-group select:focus { outline: 2px solid #8B0000; outline-offset: 2px; }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .submit-btn { background: #8B0000; color: #fff; border: none; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+    .submit-btn:hover { background: #6a0000; }
+    .submit-btn:focus { outline: 2px solid #000; outline-offset: 2px; }
+    .download-btn { background: #fff; color: #8B0000; border: 2px solid #8B0000; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .download-btn:hover { background: #f9f0f0; }
+    .note { background: #fff8e1; border-left: 4px solid #f0b429; padding: 0.75rem 1rem; border-radius: 0 4px 4px 0; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">📄</span> Enrollment Verification</h2>
+
+    <!-- Current Status -->
+    <div class="info-card">
+      <h3>Current Enrollment Status</h3>
+      <div class="data-row"><span class="data-label">Student</span><span>Jane Doe (100234567)</span></div>
+      <div class="data-row"><span class="data-label">Program</span><span>B.I.T. – Information Resource Management (IRM)</span></div>
+      <div class="data-row"><span class="data-label">Term</span><span>Winter 2026</span></div>
+      <div class="data-row"><span class="data-label">Enrollment Status</span><span><strong style="color:#2a7a2a;">Full-Time</strong></span></div>
+      <div class="data-row"><span class="data-label">Credits This Term</span><span>1.0</span></div>
+      <div class="data-row"><span class="data-label">Year of Study</span><span>3rd Year</span></div>
+    </div>
+
+    <div class="note">Enrollment verification letters are free of charge and available immediately as a PDF download. Letters include your current enrollment status, program, and term.</div>
+
+    <!-- Instant Download -->
+    <div class="form-card">
+      <h3>Download Verification Letter</h3>
+      <p style="margin-bottom:1rem; font-size:0.95rem;">Generate an official enrollment verification letter for the current term. The letter is signed and stamped by the Registrar's Office.</p>
+      <div class="btn-row">
+        <button class="download-btn">Download PDF (Winter 2026)</button>
+      </div>
+    </div>
+
+    <!-- Custom Request -->
+    <div class="form-card">
+      <h3>Request Custom Verification</h3>
+      <p style="margin-bottom:1rem; font-size:0.95rem;">Need a letter for a specific term, with additional details, or addressed to a specific organization? Submit a custom request below.</p>
+
+      <div class="form-group">
+        <label for="term">Term</label>
+        <select id="term" name="term">
+          <option value="w2026">Winter 2026 (Current)</option>
+          <option value="f2025">Fall 2025</option>
+          <option value="w2025">Winter 2025</option>
+          <option value="f2024">Fall 2024</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="addressee">Addressed To (optional)</label>
+        <input type="text" id="addressee" name="addressee" placeholder="e.g. OSAP, Embassy of France, RBC" />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Request</button>
+    </div>
+  </div>
+</body>
+</html>

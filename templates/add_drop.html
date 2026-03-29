@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add / Drop Classes – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .section-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .section-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid #E0E0E0; font-size: 0.9rem; }
+    th { font-weight: bold; background: #EFEFEF; }
+    .drop-btn { background: #cc0000; color: #fff; border: none; padding: 0.3rem 0.75rem; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+    .drop-btn:hover { background: #990000; }
+    .add-row { display: flex; gap: 1rem; align-items: flex-end; flex-wrap: wrap; margin-top: 1rem; }
+    .form-group { margin-bottom: 0; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.3rem; font-size: 0.9rem; }
+    .form-group input { padding: 0.5rem 0.75rem; border: 1px solid #CCCCCC; border-radius: 4px; font-size: 0.95rem; background: #fff; width: 200px; }
+    .form-group input:focus { outline: 2px solid #8B0000; outline-offset: 2px; }
+    .add-btn { background: #8B0000; color: #fff; border: none; padding: 0.6rem 1.5rem; font-size: 0.95rem; border-radius: 4px; cursor: pointer; }
+    .add-btn:hover { background: #6a0000; }
+    .note { background: #fff8e1; border-left: 4px solid #f0b429; padding: 0.75rem 1rem; border-radius: 0 4px 4px 0; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .deadline-info { font-size: 0.85rem; color: #555; margin-top: 0.5rem; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">📝</span> Add / Drop Classes</h2>
+
+    <div class="note">
+      <strong>Winter 2026 deadline to drop without academic penalty:</strong> February 14, 2026.<br />
+      After this date, a "WDN" (Withdrew) notation will appear on your transcript.
+    </div>
+
+    <!-- Current Registrations -->
+    <div class="section-card">
+      <h3>Currently Registered – Winter 2026</h3>
+      <table>
+        <thead>
+          <tr><th>CRN</th><th>Course</th><th>Title</th><th>Credits</th><th>Days / Time</th><th>Room</th><th></th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>22341</td><td>IRM 3001 A</td><td>Scientific and Medical Information</td><td>0.5</td>
+            <td>Mon/Wed 10:05–11:25</td><td>DT 234</td>
+            <td><button class="drop-btn">Drop</button></td>
+          </tr>
+          <tr>
+            <td>22356</td><td>IRM 3003 A</td><td>Legal Issues in IRM</td><td>0.5</td>
+            <td>Tue/Thu 13:05–14:25</td><td>SA 502</td>
+            <td><button class="drop-btn">Drop</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="deadline-info">Total credits registered: 1.0 &nbsp;|&nbsp; Full-time minimum: 1.5 credits</p>
+    </div>
+
+    <!-- Add a Course -->
+    <div class="section-card">
+      <h3>Add a Course</h3>
+      <p style="font-size:0.9rem; margin-bottom:0.75rem;">Enter the 5-digit Course Reference Number (CRN) from the <a href="{{ url_for('search_courses') }}">course search</a>.</p>
+      <div class="add-row">
+        <div class="form-group">
+          <label for="crn">CRN</label>
+          <input type="text" id="crn" name="crn" placeholder="e.g. 22380" maxlength="5" />
+        </div>
+        <button class="add-btn">Add Course</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

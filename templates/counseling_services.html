@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Counselling Services – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .info-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .info-card p { margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .info-card ul { list-style: disc; padding-left: 1.5rem; font-size: 0.95rem; }
+    .info-card ul li { margin: 0.3rem 0; }
+    .service-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    @media (max-width: 600px) { .service-grid { grid-template-columns: 1fr; } }
+    .service-tile { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.25rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .service-tile h4 { font-size: 1rem; margin-bottom: 0.4rem; }
+    .service-tile p { font-size: 0.85rem; color: #444; margin: 0; }
+    .crisis-card { background: #fdecea; border: 2px solid #cc0000; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; }
+    .crisis-card h3 { color: #cc0000; margin-bottom: 0.5rem; }
+    .crisis-card p { font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .form-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .form-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-weight: bold; margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; max-width: 500px; padding: 0.5rem 0.75rem; border: 1px solid #CCCCCC; border-radius: 4px; font-size: 1rem; background: #fff; }
+    .form-group textarea { height: 100px; resize: vertical; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: 2px solid #8B0000; outline-offset: 2px; }
+    .submit-btn { background: #8B0000; color: #fff; border: none; padding: 0.75rem 2rem; font-size: 1rem; border-radius: 4px; cursor: pointer; }
+    .submit-btn:hover { background: #6a0000; }
+    .submit-btn:focus { outline: 2px solid #000; outline-offset: 2px; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">🛟</span> Counselling Services</h2>
+
+    <!-- Crisis Banner -->
+    <div class="crisis-card">
+      <h3>Need immediate support?</h3>
+      <p><strong>Crisis Line (24/7):</strong> 613-520-6181</p>
+      <p><strong>Good2Talk (Student Helpline):</strong> 1-866-925-5454</p>
+      <p><strong>Crisis Text Line:</strong> Text HELLO to 686868</p>
+    </div>
+
+    <!-- About -->
+    <div class="info-card">
+      <h3>About Counselling Services</h3>
+      <p>Carleton's Counselling Services offers free, confidential mental health support to all registered students. Services are located in the Health and Counselling Centre (Room 2600, Herzberg Laboratories).</p>
+      <p><strong>Hours:</strong> Monday–Friday, 8:30 AM – 4:30 PM</p>
+      <p><strong>Phone:</strong> 613-520-6674</p>
+    </div>
+
+    <!-- Available Services -->
+    <div class="service-grid">
+      <div class="service-tile">
+        <h4>Individual Counselling</h4>
+        <p>One-on-one sessions with a registered counsellor to address personal or academic concerns.</p>
+      </div>
+      <div class="service-tile">
+        <h4>Same-Day Appointments</h4>
+        <p>Same-day brief consultations are available for students in immediate need. Call or drop in at 8:30 AM.</p>
+      </div>
+      <div class="service-tile">
+        <h4>Group Workshops</h4>
+        <p>Workshops on stress management, mindfulness, exam anxiety, and more. No appointment needed.</p>
+      </div>
+      <div class="service-tile">
+        <h4>Peer Support</h4>
+        <p>Trained student volunteers offer peer-to-peer support through the Active Listening program.</p>
+      </div>
+    </div>
+
+    <!-- Book an Appointment -->
+    <div class="form-card">
+      <h3>Request an Appointment</h3>
+      <div class="form-group">
+        <label for="appt-type">Appointment Type</label>
+        <select id="appt-type" name="appt-type">
+          <option value="">-- Select --</option>
+          <option value="individual">Individual Counselling</option>
+          <option value="same-day">Same-Day Consultation</option>
+          <option value="followup">Follow-up Appointment</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="preferred-date">Preferred Date</label>
+        <input type="date" id="preferred-date" name="preferred-date" />
+      </div>
+      <div class="form-group">
+        <label for="brief-reason">Brief Reason (optional – kept confidential)</label>
+        <textarea id="brief-reason" name="brief-reason" placeholder="e.g. exam stress, anxiety, feeling overwhelmed..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Request Appointment</button>
+    </div>
+  </div>
+</body>
+</html>

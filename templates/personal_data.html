@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>View Personal Data – Carleton Central</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+  <style>
+    .page-content { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .page-content h2 { font-size: 1.5rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .info-card { background: #F9F9F9; border: 1px solid #E0E0E0; border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 1.5rem; }
+    .info-card h3 { font-size: 1.1rem; margin-bottom: 0.75rem; border-bottom: 1px solid #E0E0E0; padding-bottom: 0.5rem; }
+    .data-row { display: flex; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px solid #EFEFEF; font-size: 0.95rem; }
+    .data-row:last-child { border-bottom: none; }
+    .data-label { font-weight: bold; min-width: 200px; color: #333; }
+    .data-value { color: #000; }
+    .note { background: #fff8e1; border-left: 4px solid #f0b429; padding: 0.75rem 1rem; border-radius: 0 4px 4px 0; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <h1>Carleton Central</h1>
+    <nav class="utility-nav">
+      <a href="{{ url_for('it_help_desk') }}">Help</a>
+      <a href="{{ url_for('login') }}">Logout</a>
+    </nav>
+  </header>
+
+  <div class="page-content">
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Dashboard</a>
+    <h2><span aria-hidden="true">👤</span> View Personal Data</h2>
+
+    <div class="note">To update your address or password, use the links in the <a href="{{ url_for('home') }}">Personal Information</a> section of your dashboard. To correct legal name or date of birth, contact the Registrar's Office.</div>
+
+    <!-- Basic Info -->
+    <div class="info-card">
+      <h3>Basic Information</h3>
+      <div class="data-row"><span class="data-label">Full Legal Name</span><span class="data-value">Jane Doe</span></div>
+      <div class="data-row"><span class="data-label">Student ID</span><span class="data-value">100234567</span></div>
+      <div class="data-row"><span class="data-label">Date of Birth</span><span class="data-value">January 15, 2002</span></div>
+      <div class="data-row"><span class="data-label">Gender</span><span class="data-value">Female</span></div>
+      <div class="data-row"><span class="data-label">Citizenship</span><span class="data-value">Canadian</span></div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="info-card">
+      <h3>Contact Information</h3>
+      <div class="data-row"><span class="data-label">Carleton Email</span><span class="data-value">janedoe@cmail.carleton.ca</span></div>
+      <div class="data-row"><span class="data-label">Personal Email</span><span class="data-value">jane.doe@gmail.com</span></div>
+      <div class="data-row"><span class="data-label">Phone Number</span><span class="data-value">613-555-0123</span></div>
+      <div class="data-row"><span class="data-label">Mailing Address</span><span class="data-value">123 Main St, Apt 4, Ottawa, ON K1S 5B6</span></div>
+      <div class="data-row"><span class="data-label">Permanent Address</span><span class="data-value">456 Home St, Toronto, ON M4B 1B3</span></div>
+    </div>
+
+    <!-- Academic Info -->
+    <div class="info-card">
+      <h3>Academic Information</h3>
+      <div class="data-row"><span class="data-label">Program</span><span class="data-value">Bachelor of Information Technology – Information Resource Management (IRM)</span></div>
+      <div class="data-row"><span class="data-label">Year of Study</span><span class="data-value">3rd Year</span></div>
+      <div class="data-row"><span class="data-label">Admission Year</span><span class="data-value">September 2023</span></div>
+      <div class="data-row"><span class="data-label">Expected Graduation</span><span class="data-value">April 2027</span></div>
+      <div class="data-row"><span class="data-label">Student Status</span><span class="data-value">Full-Time</span></div>
+    </div>
+  </div>
+</body>
+</html>
